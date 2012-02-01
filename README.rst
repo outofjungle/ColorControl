@@ -13,8 +13,8 @@ Create an XML file /res/values/secret.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="api_uri">http://api.pachube.com/v2/feeds/YOUR-PACHUBE-FEED-ID</string>
-     <string name="api_key">YOUR-PACHUBE-API-KEY</string>
+<string name="api_uri">http://api.pachube.com/v2/feeds/YOUR-PACHUBE-FEED-ID</string>
+<string name="api_key">YOUR-PACHUBE-API-KEY</string>
 </resources>
 
 

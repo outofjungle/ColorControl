@@ -41,7 +41,7 @@ public class LightbulbActivity extends Activity {
 		ch2.setOnSeekBarChangeListener(channel_listener);
 		ch3.setOnSeekBarChangeListener(channel_listener);
 		ch4.setOnSeekBarChangeListener(channel_listener);
-		sw.setOnClickListener( toggle_listener );
+		sw.setOnClickListener(toggle_listener);
 	}
 
 	private class FetchDatastream extends AsyncTask<Pachube, Void, Pachube> {

@@ -25,7 +25,9 @@ public class Pachube {
 	private String api_uri;
 	private String api_key;
 
-	public Pachube() {
+	public Pachube(String uri, String key) {
+		this.api_uri = uri;
+		this.api_key = key;
 		this.title = "Pachube Dashboard";
 	}
 	
@@ -71,6 +73,7 @@ public class Pachube {
 	}
 	
 	public void fetch() {
+		Log.i("DEBUG", "Fetch...");
 		JSONObject feed;
 		try {
 			feed = new JSONObject(GET(api_uri));

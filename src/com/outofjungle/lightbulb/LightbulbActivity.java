@@ -5,7 +5,6 @@ import org.json.JSONException;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.SeekBar;
@@ -20,7 +19,7 @@ public class LightbulbActivity extends Activity {
 	private SeekBar ch4;
 	private ToggleButton sw;
 	
-	private Pachube pachube = new Pachube();
+	private Pachube pachube;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,8 +32,9 @@ public class LightbulbActivity extends Activity {
 		ch4 = (SeekBar) findViewById(R.id.ch4);
 		sw = (ToggleButton) findViewById(R.id.sw);
 
-		pachube.setUri(getString(R.string.api_uri));
-		pachube.setKey(getString(R.string.api_key));
+		pachube = new Pachube(getString(R.string.api_uri),
+				getString(R.string.api_key));
+
 		new FetchDatastream().execute(pachube);
 		
 		ch1.setOnSeekBarChangeListener(channel_listener);
@@ -68,9 +68,6 @@ public class LightbulbActivity extends Activity {
 		
 		@Override
 		public void onStopTrackingTouch(SeekBar bar) {
-
-			Log.v("", "" + bar);
-
 			switch (bar.getId()) {
 
 			case R.id.ch1:

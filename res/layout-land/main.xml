@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp" >
+
+    <ToggleButton
+        android:id="@+id/sw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/sw" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignTop="@id/sw"
+        android:layout_toRightOf="@id/sw"
+        android:orientation="horizontal"
+        android:stretchColumns="1" >
+
+        <TableRow android:paddingBottom="10dp" >
+
+            <TextView
+                android:id="@+id/RedText"
+                style="@style/SliderLabelStyle"
+                android:text="@string/red" />
+
+            <SeekBar
+                android:id="@+id/ch1"
+                style="@style/SliderStyle" />
+        </TableRow>
+
+        <TableRow android:paddingBottom="10dp" >
+
+            <TextView
+                android:id="@+id/GreenText"
+                style="@style/SliderLabelStyle"
+                android:text="@string/green" />
+
+            <SeekBar
+                android:id="@+id/ch2"
+                style="@style/SliderStyle" />
+        </TableRow>
+
+        <TableRow android:paddingBottom="10dp" >
+
+            <TextView
+                android:id="@+id/BlueText"
+                style="@style/SliderLabelStyle"
+                android:text="@string/blue" />
+
+            <SeekBar
+                android:id="@+id/ch3"
+                style="@style/SliderStyle" />
+        </TableRow>
+
+        <TableRow android:paddingBottom="10dp" >
+
+            <TextView
+                android:id="@+id/WhiteText"
+                style="@style/SliderLabelStyle"
+                android:text="@string/white" />
+
+            <SeekBar
+                android:id="@+id/ch4"
+                style="@style/SliderStyle" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

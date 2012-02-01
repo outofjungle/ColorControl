@@ -65,6 +65,8 @@ public class LightbulbActivity extends Activity {
 	private OnSeekBarChangeListener channel_listener = new OnSeekBarChangeListener() {
 		
 		String channel;
+		
+		@Override
 		public void onStopTrackingTouch(SeekBar bar) {
 
 			Log.v("", "" + bar);
@@ -98,11 +100,17 @@ public class LightbulbActivity extends Activity {
 				}
 			}
 		}
+		
+		@Override
 		public void onStartTrackingTouch(SeekBar bar) {}
+		
+		@Override
 		public void onProgressChanged(SeekBar bar, int progress, boolean fromUser) {}
 	};
 
 	private OnClickListener toggle_listener = new OnClickListener() {
+		
+		@Override
 		public void onClick(View v) {
 
 			Integer value;

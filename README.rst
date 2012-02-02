@@ -4,6 +4,19 @@ Lightbulb
 
 Pachube android client to update datastream for controlling RGB LEDs
 
+Requirements
+============
+
+* Pachube Feed with datastreams named
+
+ - ch1
+ - ch2
+ - ch3
+ - ch4
+ - switch
+
+* Internet connectivity
+
 Usage
 =====
 

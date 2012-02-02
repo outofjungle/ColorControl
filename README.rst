@@ -7,14 +7,8 @@ Pachube android client to update datastream for controlling RGB LEDs
 Requirements
 ============
 
-* Pachube Feed with datastreams named
-
- - ch1
- - ch2
- - ch3
- - ch4
- - switch
-
+* Pachube Feed with datastreams named ch1, ch2, ch3, ch4, switch
+* Pachube API key which has read/write privilige for the feed
 * Internet connectivity
 
 Usage

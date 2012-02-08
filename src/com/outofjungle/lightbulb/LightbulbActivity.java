@@ -54,11 +54,11 @@ public class LightbulbActivity extends Activity {
 		@Override
 		protected void onPostExecute(Pachube pachube) {
 			setTitle(pachube.title());
-			ch1.setProgress(pachube.get("ch1"));
-			ch2.setProgress(pachube.get("ch2"));
-			ch3.setProgress(pachube.get("ch3"));
-			ch4.setProgress(pachube.get("ch4"));
-			sw.setChecked(pachube.get("switch") != 0);			
+			ch1.setProgress(pachube.get("1"));
+			ch2.setProgress(pachube.get("2"));
+			ch3.setProgress(pachube.get("3"));
+			ch4.setProgress(pachube.get("4"));
+			sw.setChecked(pachube.get("0") != 0);			
 		}
 	}
 
@@ -71,19 +71,19 @@ public class LightbulbActivity extends Activity {
 			switch (bar.getId()) {
 
 			case R.id.ch1:
-				channel = "ch1";
+				channel = "1";
 				break;
 
 			case R.id.ch2:
-				channel = "ch2";
+				channel = "2";
 				break;
 
 			case R.id.ch3:
-				channel = "ch3";
+				channel = "3";
 				break;
 			
 			case R.id.ch4:
-				channel = "ch4";
+				channel = "4";
 				break;
 
 			default:
@@ -117,7 +117,7 @@ public class LightbulbActivity extends Activity {
 				value = 0;
 			}
 			try {
-				pachube.set("switch", value );
+				pachube.set("0", value );
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

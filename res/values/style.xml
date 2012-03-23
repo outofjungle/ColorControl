@@ -6,6 +6,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">0.7</item>
         <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingLeft">15dp</item>
         <item name="android:max">255</item>
     </style>
 

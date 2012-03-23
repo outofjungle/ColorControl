@@ -24,11 +24,18 @@ public class Pachube {
 
 	private String api_uri;
 	private String api_key;
-
+	
 	public Pachube(String uri, String key) {
 		this.api_uri = uri;
 		this.api_key = key;
 		this.title = "Pachube Dashboard";
+	}
+	
+	public Pachube(Pachube pachube) {
+		this.api_uri = pachube.api_uri;
+		this.api_key = pachube.api_key;
+		this.title = pachube.title;
+		this.datastream = pachube.datastream;
 	}
 	
 	public void setUri(String uri) {
@@ -48,7 +55,7 @@ public class Pachube {
 		if (datastream.containsKey(name)) {
 			value = datastream.get(name);
 		} else {
-			Log.i("DEBUG", "Datastream key not found");
+			Log.i("LIGHTBULB", "Datastream key not found");
 		}
 		return value;
 	}
@@ -57,29 +64,45 @@ public class Pachube {
 		
 		if (datastream.containsKey(name)) {
 			datastream.put(name, value);
-
-			String data_uri = api_uri + "/datastreams/" + name;
-
-			JSONObject content = new JSONObject();
-			content.put("current_value", value);
-
-			Log.i("SET", name + " = " + content.toString());
-			PUT(data_uri, content.toString());
 		} else {
-			Log.i("DEBUG", "Datastream key not found");
+			Log.i("LIGHTBULB", "Datastream key not found");
 		}
 
 		return get(name);
 	}
 	
+	public void sync() {
+		String data_uri = api_uri;
+		JSONObject content = new JSONObject();
+
+		try {
+			JSONArray feed = new JSONArray();		
+			for(String key: datastream.keySet()) {
+				
+				JSONObject data = new JSONObject();
+				data.put("id", key);
+				data.put("current_value", datastream.get(key));
+				feed.put(data);
+			}
+
+			content.put("version", "1.0.0");
+			content.put("datastreams", feed);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		PUT(data_uri, content.toString());
+	}
+	
 	public void fetch() {
-		Log.i("DEBUG", "Fetch...");
 		JSONObject feed;
 		try {
-			feed = new JSONObject(GET(api_uri));
+			String uri = api_uri + "?rand=" + System.currentTimeMillis();
+			Log.i("LIGHTBULB", "Fetching: " + uri);
+			feed = new JSONObject(GET(uri));
 			title = feed.optString("title");
 			JSONArray feed_data = feed.getJSONArray("datastreams");
-			
+			Log.i("LIGHTBULB", feed.toString());
 			for (int i = 0; i < feed_data.length(); ++i) {
 				
 				JSONObject data = feed_data.getJSONObject(i);

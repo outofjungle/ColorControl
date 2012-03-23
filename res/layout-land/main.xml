@@ -66,6 +66,9 @@
                 android:id="@+id/ch4"
                 style="@style/SliderStyle" />
         </TableRow>
-    </TableLayout>
 
+
+    </TableLayout><TextView
+        android:id="@+id/UpdateText"
+        style="@style/SliderLabelStyle" />
 </RelativeLayout>

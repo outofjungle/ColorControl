@@ -1,68 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:stretchColumns="1" >
+    android:padding="10dp" >
 
-    <TableRow
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp" >
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1" >
 
-        <ToggleButton
-            android:id="@+id/sw"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sw" />
-    </TableRow>
+        <TableRow
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp" >
 
-    <TableRow android:paddingBottom="10dp" >
+            <ToggleButton
+                android:id="@+id/sw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sw" />
+        </TableRow>
 
-        <TextView
-            android:id="@+id/RedText"
-            style="@style/SliderLabelStyle"
-            android:text="@string/red" />
+        <TableRow android:paddingBottom="10dp" >
 
-        <SeekBar
-            android:id="@+id/ch1"
-            style="@style/SliderStyle" />
-    </TableRow>
+            <TextView
+                android:id="@+id/RedText"
+                style="@style/SliderLabelStyle"
+                android:text="@string/red" />
 
-    <TableRow android:paddingBottom="10dp" >
+            <SeekBar
+                android:id="@+id/ch1"
+                style="@style/SliderStyle" />
+        </TableRow>
 
-        <TextView
-            android:id="@+id/GreenText"
-            style="@style/SliderLabelStyle"
-            android:text="@string/green" />
+        <TableRow android:paddingBottom="10dp" >
 
-        <SeekBar
-            android:id="@+id/ch2"
-            style="@style/SliderStyle" />
-    </TableRow>
+            <TextView
+                android:id="@+id/GreenText"
+                style="@style/SliderLabelStyle"
+                android:text="@string/green" />
 
-    <TableRow android:paddingBottom="10dp" >
+            <SeekBar
+                android:id="@+id/ch2"
+                style="@style/SliderStyle" />
+        </TableRow>
 
-        <TextView
-            android:id="@+id/BlueText"
-            style="@style/SliderLabelStyle"
-            android:text="@string/blue" />
+        <TableRow android:paddingBottom="10dp" >
 
-        <SeekBar
-            android:id="@+id/ch3"
-            style="@style/SliderStyle" />
-    </TableRow>
+            <TextView
+                android:id="@+id/BlueText"
+                style="@style/SliderLabelStyle"
+                android:text="@string/blue" />
 
-    <TableRow android:paddingBottom="10dp" >
+            <SeekBar
+                android:id="@+id/ch3"
+                style="@style/SliderStyle" />
+        </TableRow>
 
-        <TextView
-            android:id="@+id/WhiteText"
-            style="@style/SliderLabelStyle"
-            android:text="@string/white" />
+        <TableRow android:paddingBottom="10dp" >
 
-        <SeekBar
-            android:id="@+id/ch4"
-            style="@style/SliderStyle" />
-    </TableRow>
+            <TextView
+                android:id="@+id/WhiteText"
+                style="@style/SliderLabelStyle"
+                android:text="@string/white" />
 
-</TableLayout>
+            <SeekBar
+                android:id="@+id/ch4"
+                style="@style/SliderStyle" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/UpdateText"
+        style="@style/SliderLabelStyle" />
+
+</RelativeLayout>

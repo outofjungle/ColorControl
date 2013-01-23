@@ -20,8 +20,8 @@ Create an XML file /res/values/secret.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="api_uri">http://api.cosm.com/v2/feeds/YOUR-PACHUBE-FEED-ID.json</string>
-<string name="api_key">YOUR-PACHUBE-API-KEY</string>
+<string name="cosm_feed_id">YOUR-PACHUBE-FEED-ID</string>
+<string name="cosm_api_key">YOUR-PACHUBE-API-KEY</string>
 </resources>
 
 

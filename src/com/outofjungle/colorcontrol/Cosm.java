@@ -22,28 +22,38 @@ public class Cosm {
 	private String title;
 	private HashMap<String, Integer> datastream = new HashMap<String, Integer>();
 
+	private static final String COSM_API_URI = "https://api.cosm.com/v2/feeds/";
+
+	private String feed_id;
 	private String api_uri;
 	private String api_key;
 	
-	public Cosm(String uri, String key) {
-		this.api_uri = uri;
+	public Cosm(String feed_id, String key) {
+		this.feed_id = feed_id;
 		this.api_key = key;
 		this.title = "Cosm Dashboard";
+		this.init();
 	}
 	
 	public Cosm(Cosm cosm) {
-		this.api_uri = cosm.api_uri;
+		this.feed_id = cosm.feed_id;
 		this.api_key = cosm.api_key;
 		this.title = cosm.title;
 		this.datastream = cosm.datastream;
+		this.init();
 	}
 	
-	public void setUri(String uri) {
-		api_uri = uri;
+	private void init() {
+		this.api_uri = COSM_API_URI + this.feed_id + ".json";
 	}
 	
-	public void setKey(String key) {
-		api_key = key;
+	public void setFeedId(String feed_id) {
+		this.feed_id = feed_id;
+		this.init();
+	}
+	
+	public void setKey(String api_key) {
+		this.api_key = api_key;
 	}
 	
 	public String title() {

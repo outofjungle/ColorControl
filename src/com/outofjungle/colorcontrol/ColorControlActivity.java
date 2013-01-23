@@ -150,8 +150,8 @@ public class ColorControlActivity extends Activity {
 	    final Cosm data = (Cosm) getLastNonConfigurationInstance();
 	    
 	    if (data == null) {
-	        cosm = new Cosm(getString(R.string.api_uri),
-	        		getString(R.string.api_key));
+	        cosm = new Cosm(getString(R.string.cosm_feed_id),
+	        		getString(R.string.cosm_api_key));
 	        new FetchDatastream().execute(cosm);
 	    } else {
 	    		cosm = new Cosm( data );

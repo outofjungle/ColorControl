@@ -1,7 +1,12 @@
 # Color Control
+![Cosm icon](https://github.com/outofjungle/ColorControl/raw/master/cosm.png)
+
+## Overview
 Cosm android client to update datastream for controlling RGB LEDs
 
 ## Requirements
+* Eclipse with ADT plugin
+* Android SDK with API version 8 (Android 2.2) and above
 * Cosm Feed with datastreams named 0 (switch), 1 (red), 2 (green), 3 (blue), 4 (white)
 * Cosm API key which has read/write privilige for the feed
 * Internet connectivity

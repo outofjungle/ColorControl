@@ -55,7 +55,7 @@ public class Cosm {
 		if (datastream.containsKey(name)) {
 			value = datastream.get(name);
 		} else {
-			Log.i("LIGHTBULB", "Datastream key not found");
+			Log.i("COSM", "Datastream key not found");
 		}
 		return value;
 	}
@@ -65,7 +65,7 @@ public class Cosm {
 		if (datastream.containsKey(name)) {
 			datastream.put(name, value);
 		} else {
-			Log.i("LIGHTBULB", "Datastream key not found");
+			Log.i("COSM", "Datastream key not found");
 		}
 
 		return get(name);
@@ -98,11 +98,11 @@ public class Cosm {
 		JSONObject feed;
 		try {
 			String uri = api_uri + "?rand=" + System.currentTimeMillis();
-			Log.i("LIGHTBULB", "Fetching: " + uri);
+			Log.i("COSM", "Fetching: " + uri);
 			feed = new JSONObject(GET(uri));
 			title = feed.optString("title");
 			JSONArray feed_data = feed.getJSONArray("datastreams");
-			Log.i("LIGHTBULB", feed.toString());
+			Log.i("COSM", feed.toString());
 			for (int i = 0; i < feed_data.length(); ++i) {
 				
 				JSONObject data = feed_data.getJSONObject(i);

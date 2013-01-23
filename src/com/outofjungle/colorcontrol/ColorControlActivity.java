@@ -1,6 +1,8 @@
-package com.outofjungle.lightbulb;
+package com.outofjungle.colorcontrol;
 
 import org.json.JSONException;
+
+import com.outofjungle.colorcontrol.R;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -12,7 +14,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class LightbulbActivity extends Activity {
+public class ColorControlActivity extends Activity {
 
 	private SeekBar ch1;
 	private SeekBar ch2;
@@ -21,7 +23,7 @@ public class LightbulbActivity extends Activity {
 	private ToggleButton sw;
 	private TextView progress;
 	
-	private Pachube pachube;
+	private Cosm cosm;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class LightbulbActivity extends Activity {
 		sw = (ToggleButton) findViewById(R.id.sw);
 		progress = (TextView) findViewById(R.id.UpdateText);
 		
-		loadPachube();
+		loadCosm();
 				
 		ch1.setOnSeekBarChangeListener(channel_listener);
 		ch2.setOnSeekBarChangeListener(channel_listener);
@@ -44,30 +46,30 @@ public class LightbulbActivity extends Activity {
 		sw.setOnClickListener(toggle_listener);
 	}
 
-	private class FetchDatastream extends AsyncTask<Pachube, Void, Pachube> {
+	private class FetchDatastream extends AsyncTask<Cosm, Void, Cosm> {
 		@Override
-		protected Pachube doInBackground(Pachube... pachube) {
-			pachube[0].fetch();
-			return pachube[0];
+		protected Cosm doInBackground(Cosm... cosm) {
+			cosm[0].fetch();
+			return cosm[0];
 		}
 
 		@Override
-		protected void onPostExecute(Pachube pachube) {
-			setTitle(pachube.title());
-			ch1.setProgress(pachube.get("1"));
-			ch2.setProgress(pachube.get("2"));
-			ch3.setProgress(pachube.get("3"));
-			ch4.setProgress(pachube.get("4"));
-			sw.setChecked(pachube.get("0") != 0);			
+		protected void onPostExecute(Cosm cosm) {
+			setTitle(cosm.title());
+			ch1.setProgress(cosm.get("1"));
+			ch2.setProgress(cosm.get("2"));
+			ch3.setProgress(cosm.get("3"));
+			ch4.setProgress(cosm.get("4"));
+			sw.setChecked(cosm.get("0") != 0);			
 		}
 	}
 
 
-	private class SyncDatastream extends AsyncTask<Pachube, Void, Pachube> {
+	private class SyncDatastream extends AsyncTask<Cosm, Void, Cosm> {
 		@Override
-		protected Pachube doInBackground(Pachube... pachube) {
-			pachube[0].sync();
-			return pachube[0];
+		protected Cosm doInBackground(Cosm... cosm) {
+			cosm[0].sync();
+			return cosm[0];
 		}
 
 		@Override
@@ -76,7 +78,7 @@ public class LightbulbActivity extends Activity {
 		}
 
 		@Override
-		protected void onPostExecute(Pachube pachube) {
+		protected void onPostExecute(Cosm cosm) {
 			progress.setText("");		
 		}
 	}
@@ -109,8 +111,8 @@ public class LightbulbActivity extends Activity {
 			}
 			if (channel != "") {
 				try {
-					pachube.set(channel, bar.getProgress());
-					new SyncDatastream().execute(pachube);
+					cosm.set(channel, bar.getProgress());
+					new SyncDatastream().execute(cosm);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -136,29 +138,29 @@ public class LightbulbActivity extends Activity {
 				value = 0;
 			}
 			try {
-				pachube.set("0", value );
-				new SyncDatastream().execute(pachube);
+				cosm.set("0", value );
+				new SyncDatastream().execute(cosm);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
 		}	
 	};
 	
-	private void loadPachube() {
-	    final Pachube data = (Pachube) getLastNonConfigurationInstance();
+	private void loadCosm() {
+	    final Cosm data = (Cosm) getLastNonConfigurationInstance();
 	    
 	    if (data == null) {
-	        pachube = new Pachube(getString(R.string.api_uri),
+	        cosm = new Cosm(getString(R.string.api_uri),
 	        		getString(R.string.api_key));
-	        new FetchDatastream().execute(pachube);
+	        new FetchDatastream().execute(cosm);
 	    } else {
-	    		pachube = new Pachube( data );
+	    		cosm = new Cosm( data );
 	    }
 	}
 	
 	@Override
 	public Object onRetainNonConfigurationInstance() {
-	    final Pachube data = new Pachube( pachube );
+	    final Cosm data = new Cosm( cosm );
 	    return data;
 	}
 }

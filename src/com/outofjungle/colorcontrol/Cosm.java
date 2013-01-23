@@ -1,4 +1,4 @@
-package com.outofjungle.lightbulb;
+package com.outofjungle.colorcontrol;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-public class Pachube {
+public class Cosm {
 
 	private String title;
 	private HashMap<String, Integer> datastream = new HashMap<String, Integer>();
@@ -25,17 +25,17 @@ public class Pachube {
 	private String api_uri;
 	private String api_key;
 	
-	public Pachube(String uri, String key) {
+	public Cosm(String uri, String key) {
 		this.api_uri = uri;
 		this.api_key = key;
-		this.title = "Pachube Dashboard";
+		this.title = "Cosm Dashboard";
 	}
 	
-	public Pachube(Pachube pachube) {
-		this.api_uri = pachube.api_uri;
-		this.api_key = pachube.api_key;
-		this.title = pachube.title;
-		this.datastream = pachube.datastream;
+	public Cosm(Cosm cosm) {
+		this.api_uri = cosm.api_uri;
+		this.api_key = cosm.api_key;
+		this.title = cosm.title;
+		this.datastream = cosm.datastream;
 	}
 	
 	public void setUri(String uri) {

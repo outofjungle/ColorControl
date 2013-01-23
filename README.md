@@ -17,7 +17,9 @@ Create an XML file /res/values/secret.xml
 
 ## Screens
 ![Screenshot 1](https://github.com/outofjungle/ColorControl/raw/master/Screenshot-1.png)
+
 ![Screenshot 2](https://github.com/outofjungle/ColorControl/raw/master/Screenshot-2.png)
+
 ![Screenshot 3](https://github.com/outofjungle/ColorControl/raw/master/Screenshot-3.png)
 
 

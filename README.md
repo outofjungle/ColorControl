@@ -1,6 +1,4 @@
 # Color Control
-![Cosm icon](https://github.com/outofjungle/ColorControl/raw/master/cosm.png)
-
 ## Overview
 Cosm android client to update datastream for controlling RGB LEDs
 
